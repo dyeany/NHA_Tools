@@ -44,6 +44,10 @@ working. Now using the input feature layer instead of the data source (full path
 -Lists all counties, not just one
 -No reprojections within script -> did away with nha_temp file going to scratch geodatabase
 -Calculates municipalities, usgs quads, and protected lands
+3/2/2016
+- upgraded all the lines that reference the ArcGIS version to 10.3 from 10.2
+- Add new users to user dictionary - 'pwoods', 'sschuette'
+
 
 To Do List/Future Ideas:
 *Batch tool that will work on counties/multiple counties
