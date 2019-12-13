@@ -1,0 +1,14 @@
+import arcpy, os, sys
+relpath = r"C:\Users\dyeany\Documents\BirdResources\GrasslandBirds\GrasslandBirds_Mapping.aprx"
+outFolder = r"C:\Users\dyeany\Documents\BirdResources\GrasslandBirds\GrasslandMapSeries"
+
+p = arcpy.mp.ArcGISProject(relpath)
+l = p.listLayouts()[0]
+if not l.mapSeries is None:
+  ms = l.mapSeries
+  if ms.enabled:
+    for pageNum in range(1, ms.pageCount + 1):
+      ms.currentPageNumber = pageNum
+      print("Exporting {0}".format(ms.pageRow.SiteName))
+      pageName = ms.pageRow.SiteName
+      l.exportToPNG(os.path.join(outFolder, f"{ms.pageRow.SiteName}.png"),resolution = 300)
